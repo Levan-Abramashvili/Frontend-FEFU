@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Практическая 3</title>
+        <style>
+            * {
+                font-size: 1.1vw;
+            }
+            /* МЕНЮ */
+            .menu {
+                display: flex;
+                flex-wrap: nowrap;
+                margin: 0 0.2vw;
+                padding: 0.2vw;
+                border: solid thin lightgrey;
+                border-radius: 5px;
+            }
+            .menu .menu-item {
+                text-align: center;
+                padding: 0.5vw;
+                margin: 0 0.5vw;
+                color: blue;
+            }
+
+            .menu-item:first-of-type {
+                background: blue;
+                color: white;
+                border-radius: 5px;
+            }
+
+            /* ГАЛЛЕРЕЯ */
+            .gallery {
+                display: grid;
+                width: 98%;
+                height: 40vh;
+                margin: 1vw auto;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .gallery img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .gallery > div {
+                overflow: hidden
+            }
+            .gallery > .img1 {
+                grid-area: 1 / 1 / 2 / 2;
+            }
+            .gallery > .img2 {
+                grid-area: 2/ 1 / 3 / 2;
+            }
+            .gallery > .img3 {
+                grid-area: 1 / 2 / 2 / 3;
+            }
+            .gallery > .img4 {
+                grid-area: 2 / 2 / 3 / 3;
+            }
+            .gallery > .img5 {
+                grid-area: 1 / 3 / 3 / 4;
+            }
+
+            /* ОСНОВНОЕ */
+            .container {
+                display: grid;
+                width: 90%;
+                height: 80vh;
+                margin: 1vw auto;
+                grid-row-gap: 0.5vw;
+                grid-column-gap: 1vw;
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: 1fr 1fr 2fr;
+            }
+            .container > .block1 {
+                grid-area: 1 / 1 / 3 / 2;
+                border: solid thin burlywood;
+                border-radius: 20px;
+            }
+            .container > .block2 {
+                grid-area: 1 / 2 / 3 / 3;
+                border: solid thin burlywood;
+                border-radius: 20px;
+            }
+            .container > .block3 {
+                grid-area: 3 / 1 / 5 / 2;
+                border: solid thin lightblue;
+                border-radius: 20px;
+            }
+            .container > .block4 {
+                grid-area: 3 / 2 / 5 / 3;
+                border: solid thin lightblue;
+                border-radius: 20px;
+            }
+            .container > .block5 {
+                grid-area: 1 / 3 / 2 / 4;
+                border: solid thin burlywood;
+                border-radius: 20px;
+            }
+            .container > .block6 {
+                grid-area: 2 / 3 / 3 / 4;
+                border: solid thin burlywood;
+                border-radius: 20px;
+            }
+            .container > .block7 {
+                grid-area: 3 / 3 / 4 / 4;
+                border: solid thin lightblue;
+                border-radius: 20px;
+            }
+            .container > .block8 {
+                grid-area: 4 / 3 / 5 / 4;
+                border: solid thin lightblue;
+                border-radius: 20px;
+            }
+
+            /* БОЛЬШИЕ БЛОКИ */
+            .big-block {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            .big-block p {
+                text-align: justify;
+                margin: 0 0.5vw;
+            }
+            .big-block img {
+                width: 95%;
+                height: 30%;
+                object-fit: cover;
+                overflow: hidden;
+                border-radius: 20px;
+                margin-top: 0.5vw;
+            }
+            .big-block a {
+                float: left;
+                margin: 0.5vw;
+                color: brown;
+            }
+
+            .block1 .big-block a,
+            .block2 .big-block a {
+                float: right;
+                margin: 0.5vw;
+                color: brown;
+            }
+
+            /* ДЛИННЫЕ БЛОКИ */
+            .long-block {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: flex-start;
+                gap: 1vw;
+            }
+            .long-block p {
+                text-align: justify;
+                margin: 0.5vw;
+            }
+            .long-block img {
+                width: 70%;
+                height: 85%;
+                object-fit: cover;
+                overflow: hidden;
+                border-radius: 20px;
+                margin: 0.5vw;
+            }
+            .long-block h4 {
+                margin: 0.5vw;
+            }
+            .long-block a {
+                float: left;
+                margin: 0.5vw;
+                color: brown;
+            }
+            .block5 .long-block a,
+            .block6 .long-block a {
+                float: right;
+                margin: 0.5vw;
+                color: brown;
+            }
+
+            /* ФУТЕР */
+            hr {
+                width: 95%;
+                margin: 1vw auto;
+                border: 0.05vw solid #ddd;
+            }
+            footer {
+                padding: 0.5vw 0;
+                font-size: 1em;
+            }
+            footer p {
+                margin: 0 5vw;
+            }
+
+            @media (max-width: 1200px) {
+                * {
+                    font-size: 1em;
+                }
+                .menu {
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                }
+                .menu .menu-item {
+                    width: 50%;
+                    box-sizing: border-box;
+                    margin: 0.5vw 0;
+                }
+
+                .gallery {
+                    height: 80vh;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .container {
+                    width: 80%;
+                    height: auto;
+                    margin: 1vw auto;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                }
+                .big-block,
+                .long-block {
+                    flex-wrap: wrap;
+                }
+                .long-block img {
+                    width: 100% QQ;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- меню -->
+        <div class="menu">
+            <div class="menu-item">Меню 1</div>
+            <div class="menu-item">Меню 2</div>
+            <div class="menu-item">Меню 3</div>
+            <div class="menu-item">Меню 4</div>
+        </div>
+
+        <!-- галлерея -->
+        <div class="gallery">
+            <div class="img1">
+                <img src="image/красная-площадь.jpeg" alt="Рисунок 1">
+            </div>
+            <div class="img2">
+                <img src="image/эрмитаж.jpeg" alt="Рисунок 2">
+            </div>
+            <div class="img3">
+                <img src="image/софийский-собор.jpeg" alt="Рисунок 3">
+            </div>
+            <div class="img4">
+                <img src="image/байкал.jpeg" alt="Рисунок 4">
+            </div>
+            <div class="img5">
+                <img src="image/родина-мать.jpeg" alt="Рисунок 5">
+            </div>
+        </div>
+
+        <!-- основной контейнер -->
+        <div class="container">
+            <div class="block1">
+                <div class="big-block">
+                    <h4>Красная площадь</h4>
+                    <p>Красная площадь — сердце Москвы и всей России, исторический центр города. 
+                        Здесь расположены такие знаковые здания, как Кремль и ГУМ.</p>
+                    <img src="image/красная-площадь.jpeg" alt="">
+                    <a href="#">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="block2">
+                <div class="big-block">
+                    <h4>Эрмитаж</h4>
+                    <p>Эрмитаж — один из крупнейших и самых известных художественных музеев мира. В его залах собрана богатейшая коллекция произведений искусства.</p>
+                    <img src="image/эрмитаж.jpeg" alt="">
+                    <a href="#">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="block3">
+                <div class="big-block">
+                    <img src="image/софийский-собор.jpeg" alt="">
+                    <h4>Софийский собор</h4>
+                    <p>Софийский собор – самый древний храм России, построен в 1045–1050 гг. по заказу новгородского князя Владимира, сына Ярослава Мудрого.</p>
+                    <a href="#">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="block4">
+                <div class="big-block">
+                    <img src="image/байкал.jpeg" alt="">
+                    <h4>Байкал</h4>
+                    <p>Байкал — это самое глубокое и крупнейшее пресноводное озеро в Евразии, расположенное в Восточной Сибири на границе Иркутской области и Бурятии</p>
+                    <a href="#">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="block5">
+                <div class="long-block">
+                    <h4>Долина гейзеров</h4>
+                    <div>
+                        <p>Долина гейзеров — это уникальное крупное гейзерное поле на Камчатке, 
+                            в Кроноцком заповеднике, где можно увидеть гейзеры...</p>
+                        <a href="#">Подробнее</a>
+                    </div>
+                    <img src="image/долина.jpeg" alt="">
+                </div>
+            </div>
+
+            <div class="block6">
+                <div class="long-block">
+                    <h4>Хибины</h4>
+                    <div>
+                        <p>Хибины — это крупнейший горный массив на Кольском полуострове в 
+                            Мурманской области, известный своей уникальной природой</p>
+                        <a href="#">Подробнее</a>
+                    </div>
+                    <img src="image/хибины.jpeg" alt="">
+                </div>
+            </div>
+
+            <div class="block7">
+                <div class="long-block">
+                    <img src="image/дворцовая-площадь.jpeg" alt="">
+                    <h4>Дворцовая площадь</h4>
+                    <div>
+                        <p>Дворцовая площадь — не просто площадь Санкт-Петербурга, 
+                            а архитектурный ансамбль, воплощающий мощь и дух Российской империи.</p>
+                        <a href="#">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block8">
+                <div class="long-block">
+                    <img src="image/парк-галицкого.jpeg" alt="">
+                    <h4>Парк Галицкого</h4>
+                    <div>
+                        <p>Парк Галицкого - это современное чудо ландшафтной архитектуры и подарок 
+                            предпринимателя Сергея Галицкого жителям Краснодара.</p>
+                        <a href="#">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+        <footer>
+            <p>
+            Б9123-09.03.04 (3 пг)<br>
+            Абрамашвили Леван<br>
+            2025
+            </p>
+        </footer>
+    </body>
+</html>
