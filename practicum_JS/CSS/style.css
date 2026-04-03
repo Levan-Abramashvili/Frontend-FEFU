@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.forms__container {
+    display: flex;
+    align-items: end;
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+}
+
+th {
+    border: 2px solid #cfcdcd;
+    background-color: #bfbfbf;
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+td {
+    border: 2px solid #cfcdcd;
+    padding: 12px;
+    background-color: #e0e0e0;
+}
