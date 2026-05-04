@@ -1,0 +1,80 @@
+#setting {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.forms__container {
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+}
+
+th {
+    border: 2px solid #cfcdcd;
+    background-color: #bfbfbf;
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+td {
+    border: 2px solid #cfcdcd;
+    padding: 12px;
+    background-color: #e0e0e0;
+}
+
+#tableButton {
+    display: flex;
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+svg {
+    width: 800px;
+    height: 400px;
+}
+svg text {
+    font: 8px Verdana;
+}
+svg path, line {
+    fill: none;
+    stroke: #333333;
+    width: 1px;
+}
+
+#diagramType,
+#makeGraficButton {
+    width: 150px;
+}
+
+.OX__values,
+.OY__values {
+    display: flex;
+    flex-direction: column;
+}
+
+.values__checkbox {
+    display: flex;
+}
+
+.diagram__values {
+    display: flex;
+    gap: 10px;
+}
+
+#checkboxError {
+    width: 150px;
+    color: red;
+    padding: 15px;
+    border: 3px solid red;
+    border-radius: 12px;    
+    text-align: center;
+}

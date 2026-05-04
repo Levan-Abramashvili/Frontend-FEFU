@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Достопримечательности России</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+    <script src="JavaScript/data.js" defer></script>
+    <script src="JavaScript/main.js" defer></script>
+    <script src="JavaScript/table.js" defer></script>
+    <script src="JavaScript/chart.js" defer></script>
+</head>
+<body>
+    <h3>Список достопримечательностей России</h3>
+    <form id="setting">
+      <div class="OX__values">Значение по оси OX<br>
+        <div class="values__checkbox">
+          <input type="radio" name="oxInput" value="0" id="countryInput">
+          <label for="countryInput"> Место нахождения</label>
+        </div>
+        <div class="values__checkbox">
+          <input type="radio" name="oxInput" value="1" id="yearInput">
+          <label for="yearInput"> Посещаемость в год</label>
+        </div> 
+      </div>
+      <div class="OY__values">Значение по оси OY<br>
+        <div class="values__checkbox">
+          <input type="checkbox" value="0" id="maxHeight">
+          <label for="maxHeight"> Максимальная посещаемость</label>
+        </div>
+        <div class="values__checkbox">
+          <input type="checkbox" value="1" id="minHeight">
+          <label for="minHeight"> Минимальная посещаемость</label>
+        </div>
+      </div>
+      <div class="diagram__values">
+          <label for="diagramType">Тип графика</label>
+          <select id="diagramType">
+              <option value="0">Точечная диаграмма</option>
+              <option value="1">Гистограмма</option>
+              <option value="2">График</option>
+          </select>
+      </div>
+      <input type="button" value="Построить" id="makeGraficButton">
+      <div id="checkboxError">Выберите значение по оси OY!</div>
+      <svg></svg>
+      <input type="button" value="Скрыть таблицу" id="tableButton">
+    </form>
+    <table id="list">
+    </table>
+</body>
+</html>
