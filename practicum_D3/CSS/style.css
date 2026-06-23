@@ -1,0 +1,24 @@
+#setting {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting__inputs {
+    display: flex;
+    gap: 15px;
+}
+
+.setting__buttons {
+    display: flex;
+}
+
+.setting__animation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.setting__animation__first {
+    display: flex;
+    flex-direction: row;
+}
