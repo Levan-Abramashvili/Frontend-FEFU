@@ -1,0 +1,57 @@
+.App {
+
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+}
+
+.App th {
+    border: 2px solid #cfcdcd;
+    background-color: #bfbfbf;
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.App td {
+  border: 2px solid #cfcdcd;
+  padding: 12px;
+  background-color: #e0e0e0;
+}
+
+.show {
+  width: 100%;
+  display: table-row;
+}
+
+.hide {
+  display: none;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.pagination .page-active {
+    color: #007bff;
+    border-color: #0056b3;
+    font-weight: bold;
+}
+
+.pagination span:hover {
+    color: #0056b3;
+}
