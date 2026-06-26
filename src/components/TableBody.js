@@ -1,7 +1,6 @@
 import TableRow from './TableRow.js';
 
 const TableBody = (props) => {
-    // Задание 4: если пагинация отключена, показываем все строки
     if (props.showPagination === false) {
         const tbody = props.body.map((item, index) =>
             <tr key={index}> 
@@ -12,7 +11,6 @@ const TableBody = (props) => {
         return <tbody>{tbody}</tbody>;
     }
     
-    // Задание 1: номера строк, отображаемых на странице
     const begRange = (props.numPage - 1) * props.amountRows;
     const endRange = begRange + Number(props.amountRows);
 

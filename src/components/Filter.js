@@ -14,16 +14,14 @@ const Filter = (props) => {
         // создаем словарь со значениями текстовых полей
         const filterField = {
             "Название": event.target["structure"].value.toLowerCase(),
-            "Тип": event.target["type"].value.toLowerCase(),
-            "Страна": event.target["country"].value.toLowerCase(),
-            "Город": event.target["city"].value.toLowerCase()
+            "Тематика": event.target["type"].value.toLowerCase(),
+            "Место нахождения": event.target["location"].value.toLowerCase(),
         };
         
-        // числовые фильтры (интервалы) - Задание 3
         const yearFrom = Number(event.target["yearFrom"].value) || 0;
         const yearTo = Number(event.target["yearTo"].value) || Infinity;
-        const heightFrom = Number(event.target["heightFrom"].value) || 0;
-        const heightTo = Number(event.target["heightTo"].value) || Infinity;
+        const visitsFrom = Number(event.target["visitsFrom"].value) || 0;
+        const visitsTo = Number(event.target["visitsTo"].value) || Infinity;
         
         // фильтруем данные по значениям всех полей формы
         let arr = props.fullData;
@@ -37,28 +35,24 @@ const Filter = (props) => {
             }
         }
         
-        // числовая фильтрация (интервалы) - Задание 3
         arr = arr.filter(item => {
-            const year = Number(item["Год"]);
-            const height = Number(item["Высота"]);
+            const year = Number(item["Год открытия"]);
+            const visits = Number(item["Посещаемость в год"]);
             
             const matchYear = year >= yearFrom && year <= yearTo;
-            const matchHeight = height >= heightFrom && height <= heightTo;
+            const matchVisits = visits >= visitsFrom && visits <= visitsTo;
             
-            return matchYear && matchHeight;
+            return matchYear && matchVisits;
         });
                 
         // передаем родительскому компоненту новое состояние
         props.filtering(arr);
     }
 
-    // Задание 4: очистка формы и возврат исходных данных
+    // Очистка формы
     const handleClear = (event) => {
-        // очищаем все поля формы
         const form = event.target.form;
         form.reset();
-        
-        // возвращаем исходные данные
         props.filtering(props.fullData);
     }
 
@@ -69,19 +63,13 @@ const Filter = (props) => {
                 <input name="structure" type="text" />
             </p>
             <p>
-                <label>Тип:</label>		
+                <label>Тематика:</label>		
                 <input name="type" type="text" />
             </p>
-            {/* Задание 2: поля Страна и Город */}
             <p>
-                <label>Страна:</label>
-                <input name="country" type="text" />
+                <label>Место нахождения:</label>
+                <input name="location" type="text" />
             </p>
-            <p>
-                <label>Город:</label>
-                <input name="city" type="text" />
-            </p>
-            {/* Задание 3: числовые поля для Год и Высота */}
             <p>
                 <label>Год от:</label>
                 <input name="yearFrom" type="number" />
@@ -91,16 +79,16 @@ const Filter = (props) => {
                 <input name="yearTo" type="number" />
             </p>
             <p>
-                <label>Высота от:</label>
-                <input name="heightFrom" type="number" />
+                <label>Посещаемость от:</label>
+                <input name="visitsFrom" type="number" />
             </p>
             <p>
-                <label>Высота до:</label>
-                <input name="heightTo" type="number" />
+                <label>Посещаемость до:</label>
+                <input name="visitsTo" type="number" />
             </p>
             <p>         
                 <button type="submit">Фильтровать</button>   
-                {/* Задание 4: кнопка очистки */}
+
                 <button type="button" onClick={handleClear}>Очистить</button>
             </p>  
         </form> 
